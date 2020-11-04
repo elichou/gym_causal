@@ -1,0 +1,4 @@
+gym_causal/agents/.ipynb_checkpoints/
+gym_causal/envs/.ipynb_checkpoints/
+*.pyc
+.ipynb_checkpoints/

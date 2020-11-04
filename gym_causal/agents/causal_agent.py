@@ -44,7 +44,7 @@ class Agent(object):
         if (self.time == 0):
             action = random.choice(self.action_space)
         else:
-            probs = np.exp(agent.occ_table[1:].sum(axis=0)/temp) / np.sum(np.exp(agent.occ_table[1:].sum(axis=0)/temp))
+            probs = np.exp(agent.occ_table[1:].sum(axis=0)/temp) /                             np.sum(np.exp(agent.occ_table[1:].sum(axis=0)/temp))
             cumul = 0
             choice = random.uniform(0, 1)
             for a, pr in enumerate(probs[:, 1]):
