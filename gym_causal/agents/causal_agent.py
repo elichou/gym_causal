@@ -13,7 +13,7 @@ class Agent(object):
         self.observation_space = obs_space
         self.reward_space = rew_space
         self.time = 0
-        self.occ_table = np.zeros([len(reward_space),
+        self.occ_table = np.zeros([len(self.reward_space),
                            len(self.action_space),
                            len(self.observation_space)])
         self.G = self.create_graph()
@@ -44,7 +44,7 @@ class Agent(object):
         if (self.time == 0):
             action = random.choice(self.action_space)
         else:
-            probs = np.exp(agent.occ_table[1:].sum(axis=0)/temp) /                             np.sum(np.exp(agent.occ_table[1:].sum(axis=0)/temp))
+            probs = np.exp(self.occ_table[1:].sum(axis=0)/temp) / np.sum(np.exp(self.occ_table[1:].sum(axis=0)/temp))
             cumul = 0
             choice = random.uniform(0, 1)
             for a, pr in enumerate(probs[:, 1]):
@@ -96,7 +96,7 @@ class Agent(object):
         self.occ_table[i][j][k] += 1
 
 
-class randomAgent(object):
+class RandomAgent(object):
     """
     Random agent
     """
